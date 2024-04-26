@@ -15,6 +15,7 @@
   </properties>
  
   <dependencies>
+    <!-- SpringBoot框架 -->
     <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-test</artifactId>
@@ -26,6 +27,13 @@
       <artifactId>spring-boot-starter-actuator</artifactId>
       <version>${spring-boot.version}</version>
     </dependency>
+    <!-- Telegram机器人 -->
+    <dependency>
+      <groupId>org.telegram</groupId>
+      <artifactId>telegrambots</artifactId>
+      <version>6.9.7.1</version>
+    </dependency>
+    <!-- 单元测试 -->
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
