@@ -5,11 +5,11 @@ import org.telegram.telegrambots.meta.api.methods.BotApiMethod;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 import org.telegram.telegrambots.meta.api.objects.Update;
 
-public class TelegramBot extends TelegramWebhookBot{
+public class MyBot extends TelegramWebhookBot{
 
     private String botUsername = "";
 
-    public TelegramBot() {
+    public MyBot() {
         super("");
     }
 
