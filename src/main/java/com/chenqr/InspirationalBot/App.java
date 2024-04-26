@@ -2,7 +2,7 @@ package com.chenqr.InspirationalBot;
 
 import org.springframework.boot.SpringApplication;
 
-@SpringApplication
+@SpringBootApplication
 public class App {
     public static void main(String[] args) {
         SpringApplication.run(App.class, args);
