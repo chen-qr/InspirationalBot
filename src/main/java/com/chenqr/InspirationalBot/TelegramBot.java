@@ -7,12 +7,10 @@ import org.telegram.telegrambots.meta.api.objects.Update;
 
 public class TelegramBot extends TelegramWebhookBot{
 
-    private String token = "";
     private String botUsername = "";
 
-    @Override
-    public String getBotToken() {
-        return this.token;
+    public TelegramBot() {
+        super("");
     }
 
     @Override
