@@ -56,11 +56,14 @@ jobs:
           username: ${{ secrets.SSH_USER }}
           password: ${{ secrets.SSH_PASSWORD }}
       - name: 在服务器启动
-        uses: fifsky/ssh-action@master
+        uses: appleboy/ssh-action@master
         with:
-          command: | # 命令中的 & 表示在后台运行进程
-            cd InspirationalBot/jar && java -jar InspirationalBot-1.0-SNAPSHOT.jar &
           host: ${{ secrets.HOST }}
-          user: ${{ secrets.SSH_USER }}
-          pass: ${{ secrets.SSH_PASSWORD }}
-          args: "-tt"
+          username: ${{ secrets.SSH_USER }}
+          key: ${{ secrets.SSH_PASSWORD }}
+          command_timeout: 20s
+          script: |
+            cd InspirationalBot/jar/
+            ps -ef | grep InspirationalBot-1.0-SNAPSHOT.jar | grep -v grep | awk '{print $2}' | xargs kill -9 
+            nohup java -jar InspirationalBot-1.0-SNAPSHOT.jar > nohup_InspirationalBot.out &
+            exit
