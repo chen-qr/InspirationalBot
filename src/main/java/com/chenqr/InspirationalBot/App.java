@@ -18,7 +18,7 @@ public class App {
         // 创建Telegram机器人
         try {
             TelegramBotsApi telegramBotsApi = new TelegramBotsApi(DefaultBotSession.class);
-            telegramBotsApi.registerBot(new MyBot("", ""));
+            telegramBotsApi.registerBot(new MyBot(System.getProperty("botToken"), System.getProperty("botUserName")));
         } catch (TelegramApiException e) {
             e.printStackTrace();
         } 
