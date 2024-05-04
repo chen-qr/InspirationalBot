@@ -24,13 +24,17 @@ jobs:
           password: ${{ secrets.SSH_PASSWORD }}
       - name: 在服务器启动
         uses: appleboy/ssh-action@master
+        env:
+          BOT_TOKEN: ${{ secrets.BOT_TOKEN }}
+          BOT_USERNAME: ${{ secrets.BOT_USERNAME }}
         with:
           host: ${{ secrets.HOST }}
           username: ${{ secrets.SSH_USER }}
           password: ${{ secrets.SSH_PASSWORD }}
           command_timeout: 20s
+          envs: BOT_TOKEN, BOT_USERNAME
           script: |
             cd InspirationalBot/jar/
             ps -ef | grep InspirationalBot-1.0-SNAPSHOT.jar | grep -v grep | awk '{print $2}' | xargs kill -9 
-            nohup java -DbotToken="${{ secrets.BOT_TOKEN }}" -DbotUserName="${{ secrets.BOT_USERNAME }} -jar InspirationalBot-1.0-SNAPSHOT.jar" > nohup.out &
+            nohup java -DbotToken="$BOT_TOKEN" -DbotUserName="$BOT_USERNAME" -jar InspirationalBot-1.0-SNAPSHOT.jar > nohup.out &
             exit
