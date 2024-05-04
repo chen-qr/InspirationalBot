@@ -60,7 +60,7 @@ jobs:
         with:
           host: ${{ secrets.HOST }}
           username: ${{ secrets.SSH_USER }}
-          key: ${{ secrets.SSH_PASSWORD }}
+          password: ${{ secrets.SSH_PASSWORD }}
           command_timeout: 20s
           script: |
             cd InspirationalBot/jar/
