@@ -19,10 +19,8 @@ public class App {
         try {
             String botToken = System.getProperty("botToken");
             assert null != botToken && !botToken.isEmpty();
-            System.out.println(botToken);
             String botUserName = System.getProperty("botUserName");
             assert null != botUserName && !botUserName.isEmpty();
-            System.out.println(botUserName);
 
             TelegramBotsApi telegramBotsApi = new TelegramBotsApi(DefaultBotSession.class);
             telegramBotsApi.registerBot(new MyBot(botToken, botUserName));
