@@ -1,16 +1,18 @@
 package com.chenqr.InspirationalBot;
 
-import org.telegram.telegrambots.bots.TelegramWebhookBot;
+import org.telegram.telegrambots.bots.TelegramLongPollingBot;
 import org.telegram.telegrambots.meta.api.methods.BotApiMethod;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 import org.telegram.telegrambots.meta.api.objects.Update;
 
-public class MyBot extends TelegramWebhookBot{
+public class MyBot extends TelegramLongPollingBot{
 
-    private String botUsername = "";
+    private String botUsername;
+    private String botToken;
 
-    public MyBot() {
-        super("");
+    public MyBot(String token, String userName) {
+        this.botUsername = userName;
+        this.botToken = token;
     }
 
     @Override
@@ -18,12 +20,13 @@ public class MyBot extends TelegramWebhookBot{
         return this.botUsername;
     }
 
-    public BotApiMethod<?> onWebhookUpdateReceived(Update update) {  
-        return SendMessage.builder().chatId(update.getMessage().getChatId()).text("Halo!").build();  
+    @Override
+    public void onUpdateReceived(Update update) {
+        System.out.println(update);
     }
 
     @Override  
-    public String getBotPath() {  
-        return this.botUsername;  
+    public String getBotToken() {  
+        return this.botToken;  
     }  
 }
