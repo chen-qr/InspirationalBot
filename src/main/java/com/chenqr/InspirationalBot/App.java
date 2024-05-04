@@ -13,11 +13,6 @@ import org.telegram.telegrambots.updatesreceivers.DefaultWebhook;
 @SpringBootApplication
 public class App {
 
-    @Value("${telegram.bot.token}")
-    private String botToken;
-    @Value("${telegram.bot.userName}")
-    private String botUserName;
-
     public static void main(String[] args) {
 
         // 创建Telegram机器人
