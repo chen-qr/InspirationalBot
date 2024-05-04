@@ -12,7 +12,7 @@ public class MyBot extends TelegramLongPollingBot{
 
     public MyBot(String token, String userName) {
         super(token);
-        
+
         this.botUsername = userName;
         this.botToken = token;
     }
@@ -24,7 +24,18 @@ public class MyBot extends TelegramLongPollingBot{
 
     @Override
     public void onUpdateReceived(Update update) {
-        System.out.println(update);
+        
+        String chatId = update.getMessage().getChatId().toString();
+        SendMessage msg = SendMessage.builder()
+            .text(String.format("hello %s, I received!", chatId))
+            .chatId(chatId)
+            .build();
+        
+        try {
+            execute(msg);
+        } catch (TelegramApiException e) {
+            e.printStackTrace();
+        }
     }
 
     @Override  
