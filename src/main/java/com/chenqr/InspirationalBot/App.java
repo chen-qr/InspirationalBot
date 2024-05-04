@@ -1,6 +1,5 @@
 package com.chenqr.InspirationalBot;
 
-import static org.junit.Assert.assertTrue;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.beans.factory.annotation.Value;
@@ -19,9 +18,9 @@ public class App {
         // 创建Telegram机器人
         try {
             String botToken = System.getProperty("botToken");
-            assertTrue(!botToken.isEmpty());
+            assert !botToken.isEmpty();
             String botUserName = System.getProperty("botUserName");
-            assertTrue(!botUserName.isEmpty());
+            assert !botUserName.isEmpty();
 
             TelegramBotsApi telegramBotsApi = new TelegramBotsApi(DefaultBotSession.class);
             telegramBotsApi.registerBot(new MyBot(botToken, botUserName));
