@@ -18,10 +18,10 @@ public class App {
         // 创建Telegram机器人
         try {
             String botToken = System.getProperty("botToken");
-            assert !botToken.isEmpty();
+            assert null != botToken && !botToken.isEmpty();
             System.out.println(botToken);
             String botUserName = System.getProperty("botUserName");
-            assert !botUserName.isEmpty();
+            assert null != botUserName && !botUserName.isEmpty();
             System.out.println(botUserName);
 
             TelegramBotsApi telegramBotsApi = new TelegramBotsApi(DefaultBotSession.class);
