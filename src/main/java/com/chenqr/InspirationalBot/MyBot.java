@@ -4,6 +4,7 @@ import org.telegram.telegrambots.bots.TelegramLongPollingBot;
 import org.telegram.telegrambots.meta.api.methods.BotApiMethod;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 import org.telegram.telegrambots.meta.api.objects.Update;
+import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 
 public class MyBot extends TelegramLongPollingBot{
 
@@ -24,9 +25,10 @@ public class MyBot extends TelegramLongPollingBot{
 
     @Override
     public void onUpdateReceived(Update update) {
-        
+
         String chatId = update.getMessage().getChatId().toString();
-        SendMessage msg = SendMessage.builder()
+        SendMessage msg = SendMessage
+            .builder()
             .text(String.format("hello %s, I received!", chatId))
             .chatId(chatId)
             .build();
