@@ -11,6 +11,8 @@ public class MyBot extends TelegramLongPollingBot{
     private String botToken;
 
     public MyBot(String token, String userName) {
+        super(token);
+        
         this.botUsername = userName;
         this.botToken = token;
     }

@@ -32,5 +32,5 @@ jobs:
           script: |
             cd InspirationalBot/jar/
             ps -ef | grep InspirationalBot-1.0-SNAPSHOT.jar | grep -v grep | awk '{print $2}' | xargs kill -9 
-            nohup java -jar InspirationalBot-1.0-SNAPSHOT.jar -DbotToken="${{ secrets.BOT_TOKEN }}" -DbotUserName="${{ secrets.BOT_USERNAME }}" > nohup_InspirationalBot.out &
+            nohup java -jar InspirationalBot-1.0-SNAPSHOT.jar -DbotToken="${{ secrets.BOT_TOKEN }}" -DbotUserName="${{ secrets.BOT_USERNAME }}" > nohup.out &
             exit
